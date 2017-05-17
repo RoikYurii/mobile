@@ -1,0 +1,41 @@
+@import "reset"
+
+.container
+  background: url('../img/bg.jpg')
+  background-size: cover
+  height: 100vh
+  width: 100%
+  z-index: 1
+  position: relative
+  padding-top: 30px
+  box-sizing: border-box
+  ::after
+    content: ""
+    top: 0
+    left: 0
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: -1
+    background-color: #02021a
+    opacity: .5
+h1
+  letter-spacing: 3px
+  font-size: 45px
+  color: #dcdcdc
+  text-align: center
+  font-weight: 700
+
+#mobile
+  margin: 50px auto
+  width: 200px
+  height: 350px
+  text-align: center
+  img
+    width: 100%
+    margin-bottom: 15px
+  span
+    color: #bababa
+    font-size: 25px
+    font-weight: 600
+    letter-spacing: 2px
