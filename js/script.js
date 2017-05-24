@@ -56,7 +56,8 @@
 var mobilePrice = 0;
 var mobileColor = '';
 var mobileMemory = 0;
-var loopExit = false;
+var memoryLoopExit = false;
+var colorLoopExit = false;
 var confirmRes = false;
 
 var mobilePrice_list = [200, 300, 400];
@@ -69,17 +70,17 @@ do {
   for (var i = 0; i < mobileMemory_list.length; i++) {
     console.log("mobileMemory_list_item=" + mobileMemory_list[i]);
     if (mobileMemory === mobileMemory_list[i]) {
-      var loopExit = true;
+      var memoryLoopExit = true;
     };
   };
 
-  if (loopExit === false) {
+  if (memoryLoopExit === false) {
     if (mobileMemory < 24 && mobileMemory > 0)  {
       console.log(mobileMemory);
       var confirmRes = confirm("Do you mean 16?");
       if (confirmRes === true) {
         var mobileMemory = 16;
-        var loopExit = true;
+        var memoryLoopExit = true;
         break;
       };
     }
@@ -87,7 +88,7 @@ do {
       var confirmRes = confirm("Do you mean 32?");
       if (confirmRes === true) {
         var mobileMemory = 32;
-        var loopExit = true;
+        var memoryLoopExit = true;
         break;
       };
     }
@@ -95,7 +96,7 @@ do {
       var confirmRes = confirm("Do you mean 64?");
       if (confirmRes === true) {
         var mobileMemory = 64;
-        var loopExit = true;
+        var memoryLoopExit = true;
         break;
       };
     }
@@ -103,7 +104,7 @@ do {
       alert("Choose between 16, 32, 64!");
     };
   };
-} while (!loopExit);
+} while (!memoryLoopExit);
 
 
 console.log(mobileMemory);
@@ -122,10 +123,20 @@ switch (mobileMemory) {
     alert('Fatal Error!');
 };
 
-while ( (mobileColor !== "black") && (mobileColor !== "gold") && (mobileColor !== "white") ) {
+do {
   var mobileColor = prompt("Choose color You like between black, white and gold");
-  console.log(mobileColor);
-}
+  for (var i = 0; i < mobileColor_list.length; i++) {
+    if (mobileColor === mobileColor_list[i]) {
+      var colorLoopExit = true;
+    };
+  };
+
+} while (!colorLoopExit);
+
+// while ( (mobileColor !== "black") && (mobileColor !== "gold") && (mobileColor !== "white") ) {
+//
+//   console.log(mobileColor);
+// }
 
 mobileColor.toLowerCase();
 var mobile = document.getElementById('mobile');
