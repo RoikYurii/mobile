@@ -70,7 +70,8 @@ do {
       var loopExit = false
       break;
     }
-    else if (mobileMemory < 24)  {
+    else if (mobileMemory < 24 && mobileMemory > 0)  {
+      console.log(mobileMemory);
       var confirmRes = confirm("Do you mean 16?");
       if (confirmRes == true) {
         var mobileMemory = 16;
@@ -88,7 +89,7 @@ do {
       }
       break;
     }
-    else if (mobileMemory >64) {
+    else if (mobileMemory > 48) {
       var confirmRes = confirm("Do you mean 64?");
       if (confirmRes == true) {
         var mobileMemory = 64;
