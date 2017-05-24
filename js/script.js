@@ -64,7 +64,7 @@ var mobileColor_list = ['black', 'gold', 'white'];
 var mobileMemory_list = [16, 32, 64];
 
 do {
-  var mobileMemory = +prompt('Enter memory: ');
+  var mobileMemory = +prompt('Enter memory. Choose between 16, 32, 64:');
 
   for (var i = 0; i < mobileMemory_list.length; i++) {
     console.log("mobileMemory_list_item=" + mobileMemory_list[i]);
