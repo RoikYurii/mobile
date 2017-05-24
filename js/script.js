@@ -56,7 +56,7 @@
 var mobilePrice = 0;
 var mobileColor = '';
 var mobileMemory = 0;
-var loopExit = true;
+var loopExit = false;
 var confirmRes = false;
 
 var mobilePrice_list = [200, 300, 400];
@@ -65,45 +65,46 @@ var mobileMemory_list = [16, 32, 64];
 
 do {
   var mobileMemory = +prompt('Enter memory: ');
+
   for (var i = 0; i < mobileMemory_list.length; i++) {
+    console.log("mobileMemory_list_item=" + mobileMemory_list[i]);
     if (mobileMemory === mobileMemory_list[i]) {
-      var loopExit = false
-      break;
-    }
-    else if (mobileMemory < 24 && mobileMemory > 0)  {
+      var loopExit = true;
+    };
+  };
+
+  if (loopExit === false) {
+    if (mobileMemory < 24 && mobileMemory > 0)  {
       console.log(mobileMemory);
       var confirmRes = confirm("Do you mean 16?");
-      if (confirmRes == true) {
+      if (confirmRes === true) {
         var mobileMemory = 16;
-        var loopExit = false;
+        var loopExit = true;
         break;
-      }
-      break;
+      };
     }
     else if (mobileMemory >= 24 && mobileMemory < 48) {
       var confirmRes = confirm("Do you mean 32?");
-      if (confirmRes == true) {
+      if (confirmRes === true) {
         var mobileMemory = 32;
-        var loopExit = false;
+        var loopExit = true;
         break;
-      }
-      break;
+      };
     }
-    else if (mobileMemory > 48) {
+    else if (mobileMemory >= 48) {
       var confirmRes = confirm("Do you mean 64?");
-      if (confirmRes == true) {
+      if (confirmRes === true) {
         var mobileMemory = 64;
-        var loopExit = false;
+        var loopExit = true;
         break;
-      }
-      break;
+      };
     }
     else {
       alert("Choose between 16, 32, 64!");
-      break;
     };
   };
-} while (loopExit);
+} while (!loopExit);
+
 
 console.log(mobileMemory);
 
@@ -121,11 +122,12 @@ switch (mobileMemory) {
     alert('Fatal Error!');
 };
 
-do {
-  var mobileColor = prompt("Choose color You like between black, white and gold").toLowerCase();
+while ( (mobileColor !== "black") && (mobileColor !== "gold") && (mobileColor !== "white") ) {
+  var mobileColor = prompt("Choose color You like between black, white and gold");
   console.log(mobileColor);
-} while ( (mobileColor != "black") && (mobileColor != "gold") && (mobileColor != "white") );
+}
 
+mobileColor.toLowerCase();
 var mobile = document.getElementById('mobile');
 var price=document.createElement('span');
 price.innerHTML = "$" + mobilePrice;
